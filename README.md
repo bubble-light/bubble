@@ -1,15 +1,8 @@
 # bubble
 project of bubble
 
-1¡¢web desktop
-2¡¢rest webservice
-3¡¢code auto generation
-4¡¢continue integration
-5¡¢service distribute
-6¡¢work flow
-7¡¢rule engine
-8¡¢JMS
-9¡¢key/value DB¡¢Relational DB¡¢mysql cluster
-10¡¢FAQ(È«ÎÄ¼ìË÷)
-11¡¢configurable module(function)
-12¡¢SSO
+1ã€a web application
+2ã€rest webservice
+3ã€code auto generation
+4ã€JMS
+5ã€key/value DBã€Relational DBã€mysql cluster
