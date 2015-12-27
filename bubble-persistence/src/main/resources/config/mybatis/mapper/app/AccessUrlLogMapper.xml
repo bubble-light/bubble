@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.bubble.persistence.app.repositories.AccessUrlLogRepository">
+  
+  <insert id="batchSave" parameterType="java.util.List">
+		INSERT INTO T_ACCESS_URL_LOG (
+			  ACCESS_URL_ID,
+			  URL,
+			  PARAM_REF,
+			  PARAM_SHARETIME,
+			  PARAM_FROM,
+			  PARAM_ISAPPINSTALLED,
+			  PARAM_NAME,
+			  PARAM_UID,
+			  PARAM_EVENT,
+			  PARAM_NOWPAGE,
+			  PARAM_LASTPAGE,
+			  PARAM_V,
+			  PARAM_PLG_AUTH,
+			  PARAM_PLG_UIN,
+			  PARAM_PLG_USR,
+			  PARAM_PLG_DEV,
+			  PARAM_PLG_NLD,
+			  PARAM_PLG_VKEY,
+			  PARAM_PLG_VISITDSTIME,
+			  PARAM_AMP,
+			  PARAM_WIDTH,
+			  PARAM_TCDSP,
+    		  PARAM_APPINSTALL,
+    		  PARAM_TP,
+    		  PARAM_LENGTH,
+    		  PARAM_MTYPE
+			) 
+			VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+				#{item.url_id,jdbcType=VARCHAR},
+				#{item.url,jdbcType=VARCHAR},
+				#{item.param_ref,jdbcType=VARCHAR},
+				#{item.param_shareTime,jdbcType=VARCHAR},
+				#{item.param_from,jdbcType=VARCHAR},
+				#{item.param_isappinstalled,jdbcType=VARCHAR},
+				#{item.param_name,jdbcType=VARCHAR},
+				#{item.param_uid,jdbcType=VARCHAR},
+				#{item.param_event,jdbcType=VARCHAR},
+				#{item.param_nowPage,jdbcType=VARCHAR},
+				#{item.param_lastPage,jdbcType=VARCHAR},
+				#{item.param_v,jdbcType=VARCHAR},
+				#{item.param_plg_auth,jdbcType=VARCHAR},
+				#{item.param_plg_uin,jdbcType=VARCHAR},
+				#{item.param_plg_usr,jdbcType=VARCHAR},
+				#{item.param_plg_dev,jdbcType=VARCHAR},
+				#{item.param_plg_nld,jdbcType=VARCHAR},
+				#{item.param_plg_vkey,jdbcType=VARCHAR},
+				#{item.param_visitDstTime,jdbcType=VARCHAR},
+				#{item.param_amp,jdbcType=VARCHAR},
+				#{item.param_width,jdbcType=VARCHAR},
+				#{item.param_tcdsp,jdbcType=VARCHAR},
+				#{item.param_appinstall,jdbcType=VARCHAR},
+				#{item.param_tp,jdbcType=VARCHAR},
+				#{item.param_length,jdbcType=VARCHAR},
+				#{item.param_mType,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+	
+	<select id="queryAccessChannel" resultType="java.util.Map">
+		SELECT 
+		  PARAM_FROM CHANNEL,
+		  COUNT(PARAM_FROM) CHANNEL_COUNT
+		FROM
+		  T_ACCESS_URL_LOG 
+		WHERE PARAM_FROM IS NOT NULL 
+		GROUP BY CHANNEL
+	</select>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.bubble.persistence.app.repositories.AccessLogRepository">
+
+	<insert id="batchSave" parameterType="java.util.List">
+		INSERT INTO T_ACCESS_LOG (
+		ACCESS_ID,
+		ACCESS_IP,
+		TERMINAL_ID,
+		ACCESS_URL_ID,
+		ACCESS_METHOD,
+		ACCESS_TIME,
+		ACCESS_COMPUTING_TIME
+		)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.access_id,jdbcType=VARCHAR},
+			#{item.access_ip,jdbcType=VARCHAR},
+			#{item.terminal_id,jdbcType=VARCHAR},
+			#{item.access_url_id,jdbcType=VARCHAR},
+			#{item.access_method,jdbcType=VARCHAR},
+			#{item.access_time,jdbcType=VARCHAR},
+			#{item.access_computing_time,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+
+</mapper>

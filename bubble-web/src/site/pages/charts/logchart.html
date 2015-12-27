@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>日志访问</title>
+<script type="text/javascript" src="../../resources/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript"src="../../resources/js/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="../../resources/js/highcharts/exporting.js"></script>
+<script type="text/javascript" src="../../resources/js/highcharts/no-data-to-display.js"></script>
+<script type="text/javascript" src="../../resources/js/bubble-web.js"></script>
+<script type="text/javascript" src="../../resources/js/bubble-web.config.js"></script>
+<script type="text/javascript">
+	$(function() {
+		Bubble.init("chart/accessChannel");
+		Bubble.loadData('',
+		function(msg) {
+			$('#container').highcharts({ //图表展示容器，与div的id保持一致
+				chart: {
+					type: 'column' //指定图表的类型，默认是折线图（line）
+				},
+				title: {
+					text: '访问渠道统计报表' //指定图表标题
+				},
+				xAxis: {
+					categories: ['访问渠道'] //指定x轴分组
+				},
+				yAxis: {
+					title: {
+						text: '访问次数' //指定y轴的标题
+					}
+				},
+				series:msg
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="container" style="min-width: 800px; height: 400px;"></div>
+</body>
+</html>

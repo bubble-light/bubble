@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.bubble.persistence.app.repositories.TerminalLogRepository">
+	
+	<insert id="batchSave" parameterType="java.util.List">
+		INSERT INTO T_TERMINAL_LOG (
+		  TERMINAL_ID,
+		  TERMINAL_MACHINE,
+		  TERMAINAL_APP_VERSION,
+		  TERMINAL_APP,
+		  TERMINAL_LANGUAGE,
+		  TERMINAL_NETTYPE,
+		  TERMAINAL_OS_VERSION
+		) 
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.terminal_id,jdbcType=VARCHAR},
+			#{item.terminal_machine,jdbcType=VARCHAR},
+			#{item.terminal_appVersion,jdbcType=VARCHAR},
+			#{item.terminal_app,jdbcType=VARCHAR},
+			#{item.terminal_language,jdbcType=VARCHAR},
+			#{item.terminal_netType,jdbcType=VARCHAR},
+			#{item.terminal_OSVersion,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+	
+</mapper>
