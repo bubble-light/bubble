@@ -16,13 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 import net.bubble.persistence.app.entities.AccessUrlLog;
-import net.bubble.persistence.framework.BubbleRepository;
+import net.bubble.persistence.framework.MybatisBubbleRepository;
 
 /**
  * @author shiwen_xiao<xiaosw@msn.cn>
  * @since 2015年12月24日
  */
-public interface AccessUrlLogRepository extends BubbleRepository<AccessUrlLog, String> {
+public interface AccessUrlLogRepository extends MybatisBubbleRepository<AccessUrlLog, String> {
 
 	/**
 	 * @param accessUrlLogList

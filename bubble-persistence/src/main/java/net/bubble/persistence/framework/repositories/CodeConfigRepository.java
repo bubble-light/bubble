@@ -12,14 +12,14 @@
  */
 package net.bubble.persistence.framework.repositories;
 
-import net.bubble.persistence.framework.BubbleRepository;
+import net.bubble.persistence.framework.MybatisBubbleRepository;
 import net.bubble.persistence.framework.entities.CodeInfo;
 
 /**
  * @author shiwen_xiao<xiaosw@msn.cn>
  * @since 2015年2月7日
  */
-public interface CodeConfigRepository extends BubbleRepository<CodeInfo, String> {
+public interface CodeConfigRepository extends MybatisBubbleRepository<CodeInfo, String> {
 	
 	
 

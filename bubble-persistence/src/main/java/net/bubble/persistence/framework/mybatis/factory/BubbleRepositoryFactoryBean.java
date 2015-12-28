@@ -14,7 +14,7 @@ package net.bubble.persistence.framework.mybatis.factory;
 
 import java.io.Serializable;
 
-import net.bubble.persistence.framework.BubbleRepository;
+import net.bubble.persistence.framework.MybatisBubbleRepository;
 import net.bubble.persistence.framework.mybatis.query.BubbleQueryLookupStrategy;
 import net.bubble.persistence.framework.mybatis.support.BubbleRepositoryImpl;
 
@@ -32,7 +32,7 @@ import org.springframework.util.Assert;
  * @author shiwen_xiao<xiaosw@msn.cn>
  * @since 2015年1月30日
  */
-public class BubbleRepositoryFactoryBean<R extends BubbleRepository<T, ID>, T, ID extends Serializable> extends
+public class BubbleRepositoryFactoryBean<R extends MybatisBubbleRepository<T, ID>, T, ID extends Serializable> extends
 		RepositoryFactoryBeanSupport<R, T, ID> {
 
 	private SqlSessionTemplate sqlSessionTemplate;
@@ -69,7 +69,7 @@ public class BubbleRepositoryFactoryBean<R extends BubbleRepository<T, ID>, T, I
 
 		@Override
 		protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata) {
-			return BubbleRepository.class;
+			return MybatisBubbleRepository.class;
 		}
 
 		@Override

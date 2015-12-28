@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import net.bubble.persistence.framework.BubbleRepository;
+import net.bubble.persistence.framework.MybatisBubbleRepository;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.util.Assert;
@@ -28,7 +28,7 @@ import org.springframework.util.Assert;
  * @author shiwen_xiao<xiaosw@msn.cn>
  * @since 2015年1月30日
  */
-public final class BubbleRepositoryImpl<T, ID extends Serializable> implements BubbleRepository<T, ID> {
+public final class BubbleRepositoryImpl<T, ID extends Serializable> implements MybatisBubbleRepository<T, ID> {
 
 	private static final String ID_MUST_NOT_BE_NULL = "The given id must not be null!";
 	

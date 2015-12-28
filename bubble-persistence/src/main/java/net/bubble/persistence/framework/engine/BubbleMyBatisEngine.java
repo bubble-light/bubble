@@ -18,7 +18,6 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import net.bubble.persistence.framework.BubbleEntity;
-import net.bubble.persistence.framework.BubbleRepository;
 import net.bubble.persistence.framework.mybatis.config.EnableBubbleRepositories;
 import net.bubble.persistence.framework.mybatis.plugin.interceptor.PaginationInterceptor;
 
@@ -27,7 +26,6 @@ import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -88,14 +86,14 @@ public class BubbleMyBatisEngine implements ResourceLoaderAware {
 		return new PaginationInterceptor();
 	}
 
-	@Bean
+	/*@Bean
 	MapperScannerConfigurer mapperScannerConfigurer() {
 		MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
 		mapperScannerConfigurer.setSqlSessionTemplateBeanName("sqlSessionTemplate");
 		mapperScannerConfigurer.setBasePackage("net.bubble.persistence.**.repositories");
-		mapperScannerConfigurer.setMarkerInterface(BubbleRepository.class);
+		mapperScannerConfigurer.setMarkerInterface(MybatisBubbleRepository.class);
 		return mapperScannerConfigurer;
-	}
+	}*/
 
 	private Resource[] getResources(String packagePath) throws IOException {
 		ResourcePatternResolver resourceResolver = ResourcePatternUtils.getResourcePatternResolver(resourceLoader);

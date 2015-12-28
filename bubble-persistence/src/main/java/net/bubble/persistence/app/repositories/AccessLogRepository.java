@@ -15,13 +15,13 @@ package net.bubble.persistence.app.repositories;
 import java.util.List;
 
 import net.bubble.persistence.app.entities.AccessLog;
-import net.bubble.persistence.framework.BubbleRepository;
+import net.bubble.persistence.framework.MybatisBubbleRepository;
 
 /**
  * @author shiwen_xiao<xiaosw@msn.cn>
  * @since 2015年12月24日
  */
-public interface AccessLogRepository extends BubbleRepository<AccessLog, String> {
+public interface AccessLogRepository extends MybatisBubbleRepository<AccessLog, String> {
 
 	/**
 	 * @param accessLogList
