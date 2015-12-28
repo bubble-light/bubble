@@ -66,6 +66,7 @@
 		<org.restlet.version>2.2-M6</org.restlet.version>
 		<commons-collections.version>3.2</commons-collections.version>
 		<jetty-util.version>8.1.11.v20130520</jetty-util.version>
+		<spring-data-redis.version>1.6.2.RELEASE</spring-data-redis.version>
 	</properties>
 	<build>
 		<plugins>
@@ -209,6 +210,11 @@
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-core</artifactId>
 				<version>${spring-security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-redis</artifactId>
+				<version>${spring-data-redis.version}</version>
 			</dependency>
 			<!-- springframework extension jar end -->
 
