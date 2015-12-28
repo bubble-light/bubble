@@ -8,7 +8,7 @@ rem mvn -Dmaven.test.skip=true clean install
 rem cd ./bubble-persistence
 rem mvn -Dmaven.test.skip=true clean install
 
-rem cd ../bubble-remote
+rem cd ../bubble-web
 rem mvn -Dmaven.test.skip=true clean install 
 
 rem cd ./bubble-application
