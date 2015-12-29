@@ -23,6 +23,10 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="dialect" value="MYSQL"></property>
 	</bean>
+	
+	<bean class="net.bubble.persistence.framework.engine.BubbleRedisEngine">
+		<property name="dataSource" ref="redisDataSource"></property>
+	</bean>
 
 	<bean class="net.bubble.common.manager.spring.SpringContextManager" />
 

@@ -14,6 +14,8 @@
 					    http://www.springframework.org/schema/data/jpa
      					http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
+	<!-- <jee:jndi-lookup id="dataSource" jndi-name="BUBBLE_DB"></jee:jndi-lookup> -->
+
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/bubble" />
@@ -26,6 +28,28 @@
 		<property name="maxPoolSize" value="60" />
 		<property name="maxIdleTime" value="25200" />
 		<property name="acquireIncrement" value="5" />
+	</bean>
+
+	<bean id="redisDataSource"
+		class="net.bubble.persistence.framework.redis.datasource.RedisDataSource">
+		<property name="maxTotal" value="5000"></property>
+		<property name="maxIdle" value="500"></property>
+		<property name="maxWaitMillis" value="1000"></property>
+		<property name="minIdle" value="200"></property>
+		<property name="testOnBorrow" value="true"></property>
+
+		<property name="hostName" value="192.168.103.53"></property>
+		<property name="port" value="6379"></property>
+		<property name="timeOut" value="3000"></property>
+		<property name="password" value=""></property>
+		<!-- 
+		<property name="masterName" value="redisMaster"></property>
+		<property name="sentinelNodes">
+			<set>
+				<value>127.0.0.1:23679</value>
+			</set>
+		</property>
+		 -->
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

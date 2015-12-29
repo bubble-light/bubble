@@ -16,7 +16,6 @@ import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import net.bubble.application.datahandler.file.filter.AbstractFileFilter;
 import net.bubble.application.datahandler.file.reader.AbstractReader;
 
 import org.slf4j.Logger;

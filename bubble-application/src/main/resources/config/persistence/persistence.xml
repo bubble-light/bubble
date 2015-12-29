@@ -30,6 +30,27 @@
 		<property name="acquireIncrement" value="5" />
 	</bean>
 
+	<bean id="redisDataSource"
+		class="net.bubble.persistence.framework.redis.datasource.RedisDataSource">
+		<property name="maxTotal" value="5000"></property>
+		<property name="maxIdle" value="500"></property>
+		<property name="maxWaitMillis" value="1000"></property>
+		<property name="minIdle" value="200"></property>
+		<property name="testOnBorrow" value="true"></property>
+
+		<property name="hostName" value="127.0.0.1"></property>
+		<property name="port" value="6379"></property>
+		<property name="timeOut" value="3000"></property>
+		<property name="password" value=""></property>
+		<!-- 非sentinel环境下注释masterName和sentinelNodes配置 -->
+		<property name="masterName" value="redisMaster"></property>
+		<property name="sentinelNodes">
+			<set>
+				<value>127.0.0.1:23679</value>
+			</set>
+		</property>
+	</bean>
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<bean id="transactionManager"

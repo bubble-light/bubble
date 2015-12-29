@@ -42,20 +42,20 @@ public class PropertiesManager extends PropertyPlaceholderConfigurer {
 	/**
 	 * 属性文件资源路径枚举 2015年1月28日
 	 */
-	public enum LocationEnum {
+	public static enum LocationEnum {
 		CLASSPATH, FILESYSTEM;
 	}
 
 	private static final Logger logger = LoggerFactory.getLogger(PropertiesManager.class);
 
-	private static Map<String, String> contextProperties;
+	private static Map<String, Object> contextProperties;
 
 	/**
 	 * 获取Spring容器已加载的属性文件内容
 	 * 
 	 * @return Map<String,String> 属性文件内容集合
 	 */
-	public Map<String, String> getContextProperties() {
+	public static Map<String, Object> getContextProperties() {
 		return contextProperties;
 	}
 
@@ -66,7 +66,7 @@ public class PropertiesManager extends PropertyPlaceholderConfigurer {
 	 * @return Properties 属性文件描述对象
 	 * @throws CommonException 文件无法找到或者读取文件异常
 	 */
-	public Properties loadProperties(String location, LocationEnum locationKind) throws CommonException {
+	public static Properties loadProperties(String location, LocationEnum locationKind) throws CommonException {
 		try {
 			Resource resource = null;
 			switch (locationKind) {
@@ -86,12 +86,12 @@ public class PropertiesManager extends PropertyPlaceholderConfigurer {
 
 	@Override
 	protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props) throws BeansException {
-		contextProperties = new HashMap<String, String>();
+		contextProperties = new HashMap<String, Object>();
 		for (Object key : props.keySet()) {
 			if (logger.isDebugEnabled()) {
 				logger.debug("load property content: {}={}", String.valueOf(key), props.get(String.valueOf(key)));
 			}
-			contextProperties.put(String.valueOf(key), String.valueOf(props.get(String.valueOf(key))));
+			contextProperties.put(String.valueOf(key), props.get(String.valueOf(key)));
 		}
 		super.processProperties(beanFactoryToProcess, props);
 	}

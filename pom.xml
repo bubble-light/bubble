@@ -67,6 +67,7 @@
 		<commons-collections.version>3.2</commons-collections.version>
 		<jetty-util.version>8.1.11.v20130520</jetty-util.version>
 		<spring-data-redis.version>1.6.2.RELEASE</spring-data-redis.version>
+		<jedis.version>2.8.0</jedis.version>
 	</properties>
 	<build>
 		<plugins>
@@ -427,6 +428,11 @@
 				<groupId>com.whalin</groupId>
 				<artifactId>Memcached-Java-Client</artifactId>
 				<version>${memcached-client.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${jedis.version}</version>
 			</dependency>
 			<!-- cache jar end -->
 

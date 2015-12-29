@@ -60,7 +60,7 @@ public class BubbleMyBatisEngine implements ResourceLoaderAware {
 	}
 
 	@Bean
-	SqlSessionFactory sqlSessionFactory() throws Exception {
+	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setTypeAliasesPackage("net.bubble.persistence.**.entities");
@@ -77,12 +77,12 @@ public class BubbleMyBatisEngine implements ResourceLoaderAware {
 
 	@Bean
 	@Scope("prototype")
-	SqlSessionTemplate sqlSessionTemplate() throws Exception {
+	public SqlSessionTemplate sqlSessionTemplate() throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory(), ExecutorType.BATCH);
 	}
 
 	@Bean
-	Interceptor paginationInterceptor() {
+	public Interceptor paginationInterceptor() {
 		return new PaginationInterceptor();
 	}
 

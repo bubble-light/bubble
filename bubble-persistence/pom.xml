@@ -61,6 +61,10 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-redis</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
 	</dependencies>
 	<url>https://github.com/bubble-light/bubble/tree/master/bubble-persistence</url>
 </project>
