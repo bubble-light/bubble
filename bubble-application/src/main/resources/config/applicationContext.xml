@@ -24,9 +24,9 @@
 		<property name="dialect" value="MYSQL"></property>
 	</bean>
 	
-	<bean class="net.bubble.persistence.framework.engine.BubbleRedisEngine">
+	<!-- <bean class="net.bubble.persistence.framework.engine.BubbleRedisEngine">
 		<property name="dataSource" ref="redisDataSource"></property>
-	</bean>
+	</bean> -->
 
 	<bean class="net.bubble.common.manager.spring.SpringContextManager" />
 
@@ -35,8 +35,7 @@
 		<property name="ignoreResourceNotFound" value="true" />
 		<property name="locations">
 			<list>
-				<value>classpath*:config/prop/xxx.properties</value>
-				<value>classpath*:config/prop/xxx.properties</value>
+				<value>classpath*:config/prop/bubble-application.properties</value>
 			</list>
 		</property>
 	</bean>

@@ -13,7 +13,6 @@
 package net.bubble;
 
 import org.junit.runner.RunWith;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -22,7 +21,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @since 2015年1月28日
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ComponentScan(basePackages={"net.bubble.application.**.controller", "net.bubble.application.**.service"})
 @ContextConfiguration(locations={"classpath*:config/applicationContext.xml", "classpath*:config/persistence/persistence.xml","classpath*:config/app/application.xml"})
 public class BaseTest {
 }

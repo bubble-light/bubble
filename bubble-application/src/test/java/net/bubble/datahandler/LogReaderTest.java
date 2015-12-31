@@ -40,7 +40,7 @@ public class LogReaderTest extends BaseTest {
 			logger.info("开始进行数据导入");
 			long time = System.currentTimeMillis();
 			ReaderBootStartup rbs = new ReaderBootStartup();
-			rbs.setLogFilePath("E:/work_houpix/log/");
+			rbs.setLogFilePath("D:/work/work_houpix/log/");
 			AccessLogFileReader reader = new AccessLogFileReader();
 			reader.setAccessLogService(accessLogService);
 			reader.setFileFilter(new AccessLogFileReaderFilter());
@@ -48,7 +48,7 @@ public class LogReaderTest extends BaseTest {
 			rbs.startBootStratup();
 			// reader.setFile(new File("E:/work_houpix/log/ad-dream-access.log"));
 			// reader.setFile(new File("E:/work_houpix/log/log.gif-access.log"));
-			logger.info("数据导入完成，共耗时：{}秒",((System.currentTimeMillis() - time) / 1000));
+			logger.info("数据导入完成，共耗时：{}秒", ((System.currentTimeMillis() - time) / 1000));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

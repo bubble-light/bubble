@@ -51,12 +51,12 @@
 	</appender>
 
 	<logger name="net.bubble" additivity="false">
-		<level value="DEBUG" />
-		<appender-ref ref="STDOUT" />
+		<level value="INFO" />
+		<appender-ref ref="BUBBLE_FILE" />
 	</logger>
 	
 	<root>
-		<level value="DEBUG" />
-		<appender-ref ref="STDOUT" />
+		<level value="INFO" />
+		<appender-ref ref="FRAMEWORK_FILE" />
 	</root>
 </configuration>

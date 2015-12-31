@@ -10,4 +10,5 @@
 	<name>bubble-web</name>
 	<description>bubble-web</description>
 	<url>https://github.com/bubble-light/bubble/tree/master/bubble-persistence</url>
+	<packaging>pom</packaging>
 </project>
