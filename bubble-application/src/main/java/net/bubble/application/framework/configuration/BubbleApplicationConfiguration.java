@@ -23,7 +23,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "net.bubble.application.**.controller", "net.bubble.application.**.service", "net.bubble.application.**.advice" })
-@ImportResource({ "classpath*:config/applicationContext.xml", "classpath*:config/persistence/persistence.xml", "classpath*:config/app/application.xml" })
+@ComponentScan(basePackages = { "net.bubble.application.**.controller", "net.bubble.application.**.service", "net.bubble.application.**.advice","net.bubble.application.**.jobtask" })
+@ImportResource({ "classpath*:config/applicationContext.xml", "classpath*:config/persistence/persistence.xml", "classpath*:config/app/application.xml","classpath*:config/app/mapreduce.xml" })
 public class BubbleApplicationConfiguration {
 }

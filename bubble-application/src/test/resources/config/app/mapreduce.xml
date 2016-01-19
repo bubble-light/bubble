@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:hadoop="http://www.springframework.org/schema/hadoop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+						http://www.springframework.org/schema/context 
+					    http://www.springframework.org/schema/context/spring-context-4.1.xsd
+     					http://www.springframework.org/schema/hadoop 
+     					http://www.springframework.org/schema/hadoop/spring-hadoop.xsd">
+
+	<!-- Application Bean Configuration Start -->
+
+	<hadoop:configuration>
+		fs.defaultFS=${hadoop.defaultFileSystem}
+		yarn.resourcemanager.address=${hadoop.resourceManager}
+		mapreduce.framework.name=yarn
+		mapreduce.jobhistory.address=${hadoop.jobHistory}
+	</hadoop:configuration>
+
+	<hadoop:job id="helloWorldJob"
+		libs=""
+		input-path="${helloWorldJob.hadoop.job.inputPath}"
+		output-path="${helloWorldJob.hadoop.job.outputPath}" 
+		mapper="net.bubble.application.app.mapreduce.map.HelloWorldMap"
+		reducer="net.bubble.application.app.mapreduce.reduce.HelloWorldReduce" />
+
+
+	<hadoop:job-runner id="helloWorldJobRunner" job-ref="helloWorldJob"
+		run-at-startup="false" wait-for-completion="true" />
+
+
+	<!-- Application Bean Configuration End -->
+</beans>

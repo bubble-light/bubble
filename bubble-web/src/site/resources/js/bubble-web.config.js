@@ -19,6 +19,6 @@ Bubble.protocol = 'http';
 
 Bubble.host = '192.168.50.25';
 
-Bubble.port = '8088';
+Bubble.port = '8787';
 
 Bubble.debugModel = true;

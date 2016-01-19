@@ -12,7 +12,10 @@
  */
 package net.bubble;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,6 +24,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @since 2015年1月28日
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath*:config/applicationContext.xml", "classpath*:config/persistence/persistence.xml","classpath*:config/app/application.xml"})
+@ContextConfiguration(locations = { "classpath:config/applicationContext.xml", "classpath:config/persistence/persistence.xml",
+		"classpath:config/app/application.xml", "classpath:config/app/mapreduce.xml" })
 public class BaseTest {
+
+	private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
+
+	@Test
+	public void testContainer() {
+		logger.info("Container starting ...");
+	}
 }

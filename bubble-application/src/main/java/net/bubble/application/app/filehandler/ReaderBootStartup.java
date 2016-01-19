@@ -10,13 +10,13 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package net.bubble.application.datahandler.file;
+package net.bubble.application.app.filehandler;
 
 import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import net.bubble.application.datahandler.file.reader.AbstractReader;
+import net.bubble.application.app.filehandler.reader.AbstractReader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

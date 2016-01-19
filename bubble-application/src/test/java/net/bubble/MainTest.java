@@ -12,12 +12,7 @@
  */
 package net.bubble;
 
-import java.io.File;
-import java.io.IOException;
-
-import net.bubble.application.datahandler.file.reader.AccessLogFileReader;
-
-import org.junit.Test;
+import net.bubble.common.utils.StringUtil;
 
 /**
  * @author shiwen_xiao<xiaosw@msn.cn>
@@ -38,12 +33,19 @@ public class MainTest {
 		 */
 		
 		
-		String content = "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13B143 MicroMessenger/6.3.8 NetType/WIFI Language/zh_CN";
+		/*String content = "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13B143 MicroMessenger/6.3.8 NetType/WIFI Language/zh_CN";
 		content.substring(content.indexOf("("), content.indexOf(")"));
 		System.out.println(content.substring(content.indexOf("(")+1, content.indexOf(")")));
 		
 		content = "Mozilla/5.0 (Linux; U; Android 4.1.2; zh-cn; SM-G3508 Build/JZO54K) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025483 Mobile Safari/533.1 MicroMessenger/6.2.5.53_r2565f18.621 NetType/WIFI Language/zh_CN";
 		content.substring(content.indexOf("("), content.indexOf(")"));
-		System.out.println(content.substring(content.indexOf("(")+1, content.indexOf(")")));
+		System.out.println(content.substring(content.indexOf("(")+1, content.indexOf(")")));*/
+		String line = "180.213.170.112 - - [16/Jan/2016:08:24:09 +0800] \"GET /mi/images/qrcode.jpg HTTP/1.1\" 200 25654 \"http://share.houpix.com/mi/share.html?id=180451&uid=1452873505_121.26.4.164_646899438&shareTime=1452873741487&shareTo=timeline&from=timeline&isappinstalled=0\" \"Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Che2-TL00 Build/HonorChe2-TL00) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025488 Mobile Safari/533.1 MicroMessenger/6.3.5.50_r1573191.640 NetType/WIFI Language/zh_CN\"";
+		String regex = "([\\d]+.[\\d]+.[\\d]+.[\\d]+) - - \\[([\\s\\S]+)\\] \"([\\S]+) [^\"]*\" ([\\d]{3}) ([\\d]+) \"([^\"]*)\" \"([^\"]*)\"";
+		
+		String[] values = StringUtil.getMatherContent(line, regex, 1,9);
+		for(String val : values){
+			System.out.println(val);
+		}
 	}
 }

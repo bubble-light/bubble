@@ -39,7 +39,7 @@ public class BubbleApplicationInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
 		applicationContext.setServletContext(servletContext);
-		applicationContext.register(new Class[] { BubbleApplicationConfiguration.class });
+		applicationContext.register(new Class[] { BubbleApplicationConfiguration.class});
 		initParam(servletContext);
 		initListener(servletContext);
 		initFilter(servletContext);
@@ -50,7 +50,7 @@ public class BubbleApplicationInitializer implements WebApplicationInitializer {
 	private void initFilter(ServletContext servletContext) {
 		EnumSet dispatcherTypeEnums = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE,
 				DispatcherType.ERROR);
-		
+
 		FilterRegistration.Dynamic encodingDynamic = servletContext.addFilter("characterEncodingFilter", new CharacterEncodingFilter());
 		encodingDynamic.setInitParameter("encoding", "UTF-8");
 		encodingDynamic.addMappingForUrlPatterns(dispatcherTypeEnums, false, new String[] { "/" });
@@ -60,8 +60,8 @@ public class BubbleApplicationInitializer implements WebApplicationInitializer {
 	}
 
 	private void initParam(ServletContext servletContext) {
-//		servletContext.setInitParameter("contextConfigLocation",
-//				"classpath*:config/applicationContext.xml,classpath*:config/persistence/persistence.xml");
+		// servletContext.setInitParameter("contextConfigLocation",
+		// "classpath*:config/applicationContext.xml,classpath*:config/persistence/persistence.xml");
 	}
 
 	private void initListener(ServletContext servletContext) {

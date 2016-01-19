@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true">
-	<property resource="config/prop/logback.properties"></property>
+<property resource="config/prop/logback.properties"></property>
 	<appender name="FRAMEWORK_FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${logfile.home}/logs/${logfile.name}_framework.log</file>
+		<file>${logfile.home}/bubble/${logfile.name}_framework.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>
-				${logfile.home}/logs/backup/${logfile.name}_framework-%d{yyyy-MM-dd}.%i.log
+				${logfile.home}/bubble/backup/${logfile.name}_framework-%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -23,10 +23,10 @@
 
 	<appender name="BUBBLE_FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${logfile.home}/logs/${logfile.name}.log</file>
+		<file>${logfile.home}/bubble/${logfile.name}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>
-				${logfile.home}/logs/backup/${logfile.name}-%d{yyyy-MM-dd}.%i.log
+				${logfile.home}/bubble/backup/${logfile.name}-%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

@@ -17,9 +17,9 @@
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://192.168.50.25:3306/dataanalysis" />
-		<property name="user" value="root" />
-		<property name="password" value="yuyue111" />
+		<property name="jdbcUrl" value="jdbc:mysql://192.168.50.25:3306/houpixdata" />
+		<property name="user" value="houpixdata" />
+		<property name="password" value="houpixdata" />
 		<property name="autoCommitOnClose" value="true" />
 		<property name="checkoutTimeout" value="5000" />
 		<property name="initialPoolSize" value="20" />
