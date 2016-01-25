@@ -1,5 +1,5 @@
 /**
- * Copyright [2015-2017] [https://github.com/bubble-light/]
+ * Copyright [2015-2017] 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may
  * obtain a copy of the License at
@@ -12,12 +12,30 @@
  */
 package net.bubble.common.utils;
 
+import java.io.File;
+
 import org.apache.commons.io.FileUtils;
+import org.springframework.util.Assert;
 
 /**
  * @author shiwen_xiao<xiaosw@msn.cn>
  * @since 2015年12月23日
  */
 public class FileUtil extends FileUtils {
+
+	/**
+	 * 重命名文件
+	 * 
+	 * @param srcFile
+	 * @param dstFile
+	 */
+	public static void renameFile(String srcFile, String dstFile) {
+		Assert.notNull(srcFile, "The param 'srcFile' can't be null.");
+		Assert.notNull(srcFile, "The param 'dstFile' can't be null.");
+		File sfile = new File(srcFile);
+		File dfile = new File(dstFile);
+		if (sfile.canExecute())
+			sfile.renameTo(dfile);
+	}
 
 }

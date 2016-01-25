@@ -1,5 +1,5 @@
 /**
- * Copyright [2015-2017] [https://github.com/bubble-light/]
+ * Copyright [2015-2017] 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may
  * obtain a copy of the License at
@@ -13,6 +13,8 @@
 package net.bubble.application.app.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import net.bubble.application.app.service.IAccessLogService;
 import net.bubble.application.framework.annotaions.Jsonp;

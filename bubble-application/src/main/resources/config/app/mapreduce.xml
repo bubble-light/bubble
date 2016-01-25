@@ -10,13 +10,16 @@
      					http://www.springframework.org/schema/hadoop/spring-hadoop.xsd">
 
 	<!-- Application Bean Configuration Start -->
+	<hadoop:file-system />
+	
 	<hadoop:configuration>
 		fs.defaultFS=${hadoop.defaultFileSystem}
 		yarn.resourcemanager.address=${hadoop.resourceManager}
 		mapreduce.framework.name=yarn
 		mapreduce.jobhistory.address=${hadoop.jobHistory}
 	</hadoop:configuration>
-
+	
+	
 	<hadoop:job id="helloWorldJob" 
 		input-path="${helloWorldJob.hadoop.job.inputPath}"
 		output-path="${helloWorldJob.hadoop.job.outputPath}" 
@@ -26,7 +29,7 @@
 
 
 	<hadoop:job-runner id="helloWorldJobRunner"  job-ref="helloWorldJob" run-at-startup="false" wait-for-completion="true"/>
-
+	
 
 	<!-- Application Bean Configuration End -->
 </beans>

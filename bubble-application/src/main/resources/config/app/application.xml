@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 						http://www.springframework.org/schema/context 
@@ -17,9 +17,12 @@
 					    http://www.springframework.org/schema/mvc
 					    http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
 					    http://www.springframework.org/schema/data/jpa
-     					http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-
+     					http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+     					http://www.springframework.org/schema/task
+     					http://www.springframework.org/schema/task/spring-task-4.1.xsd">
+	
 	<!-- Application Bean Configuration Start -->
-
+	<task:annotation-driven scheduler="taskJobScheduler" mode="proxy" />
+	<task:scheduler id="taskJobScheduler" pool-size="20"/>
 	<!-- Application Bean Configuration End -->
 </beans>

@@ -72,7 +72,7 @@ public class DateUtil {
 	/**
 	 * 获得服务器当前日期及时间，以格式为：yyyy-MM-dd HH:mm:ss的日期字符串形式返回
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -88,7 +88,7 @@ public class DateUtil {
 	/**
 	 * 获得服务器当前日期，以格式为：yyyy-MM-dd的日期字符串形式返回
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -102,9 +102,25 @@ public class DateUtil {
 	}
 
 	/**
+	 * 获取跟当前日期日差值日期字符串
+	 * @param increaseDay 日差值，可以为负数
+	 * @return
+	 */
+	public static String getDate(int increaseDay) {
+		try {
+			Calendar increaseCalendar = cale.getInstance();
+			increaseCalendar.add(Calendar.DATE, increaseDay);
+			return sdf_date_format.format(increaseCalendar.getTime());
+		} catch (Exception e) {
+			logger.debug("DateUtil.getDate():" + e.getMessage());
+			return "";
+		}
+	}
+
+	/**
 	 * 获得服务器当前时间，以格式为：HH:mm:ss的日期字符串形式返回
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -122,7 +138,7 @@ public class DateUtil {
 	/**
 	 * 统计时开始日期的默认值
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -138,7 +154,7 @@ public class DateUtil {
 	/**
 	 * 统计时结束日期的默认值
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -154,7 +170,7 @@ public class DateUtil {
 	/**
 	 * 获得服务器当前日期的年份
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -170,7 +186,7 @@ public class DateUtil {
 	/**
 	 * 获得服务器当前日期的月份
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -188,7 +204,7 @@ public class DateUtil {
 	/**
 	 * 获得服务器在当前月中天数
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -204,7 +220,7 @@ public class DateUtil {
 	/**
 	 * 比较两个日期相差的天数
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param date1
 	 * @param date2
@@ -229,7 +245,7 @@ public class DateUtil {
 	/**
 	 * 比较两个日期相差的天数
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param date1
 	 * @param date2
@@ -254,7 +270,7 @@ public class DateUtil {
 	/**
 	 * 比较两个日期相差的月数
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param date1
 	 * @param date2
@@ -276,7 +292,7 @@ public class DateUtil {
 	/**
 	 * 返回日期加X天后的日期
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param date
 	 * @param i
@@ -297,7 +313,7 @@ public class DateUtil {
 	/**
 	 * 返回日期加X月后的日期
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param date
 	 * @param i
@@ -318,7 +334,7 @@ public class DateUtil {
 	/**
 	 * 返回日期加X年后的日期
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param date
 	 * @param i
@@ -339,7 +355,7 @@ public class DateUtil {
 	/**
 	 * 返回某年某月中的最大天
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param year
 	 * @param month
@@ -367,7 +383,7 @@ public class DateUtil {
 	/**
 	 * 格式化日期
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param orgDate
 	 * @param Type
@@ -437,7 +453,7 @@ public class DateUtil {
 	/**
 	 * 返回默认的日期格式
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -449,7 +465,7 @@ public class DateUtil {
 	/**
 	 * 将指定日期按默认格式进行格式代化成字符串后输出如：yyyy-MM-dd
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param aDate
 	 * @return
@@ -463,22 +479,22 @@ public class DateUtil {
 		}
 		return (returnValue);
 	}
-	
+
 	/**
 	 * 将指定日期按默认格式进行格式代化成字符串后输出如：yyyy-MM-dd
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param aDate
 	 * @return
 	 */
-	public static final String getDate(String sourcePattern,String destPattern,String source,Locale sourceLocale,Locale destLocale) {
+	public static final String getDate(String sourcePattern, String destPattern, String source, Locale sourceLocale, Locale destLocale) {
 		try {
-			SimpleDateFormat sourceformat  = new SimpleDateFormat(sourcePattern,sourceLocale);
-			SimpleDateFormat destformat  = new SimpleDateFormat(destPattern,destLocale);
+			SimpleDateFormat sourceformat = new SimpleDateFormat(sourcePattern, sourceLocale);
+			SimpleDateFormat destformat = new SimpleDateFormat(destPattern, destLocale);
 			return destformat.format(sourceformat.parse(source));
 		} catch (ParseException e) {
-			logger.error(e.getMessage(),e.getCause());
+			logger.error(e.getMessage(), e.getCause());
 			return "";
 		}
 	}
@@ -486,7 +502,7 @@ public class DateUtil {
 	/**
 	 * 取得给定日期的时间字符串，格式为当前默认时间格式
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param theTime
 	 * @return
@@ -498,7 +514,7 @@ public class DateUtil {
 	/**
 	 * 取得当前时间的Calendar日历对象
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 * @throws ParseException
@@ -515,7 +531,7 @@ public class DateUtil {
 	/**
 	 * 将日期类转换成指定格式的字符串形式
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param aMask
 	 * @param aDate
@@ -537,7 +553,7 @@ public class DateUtil {
 	/**
 	 * 将指定的日期转换成默认格式的字符串形式
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param aDate
 	 * @return
@@ -549,7 +565,7 @@ public class DateUtil {
 	/**
 	 * 将日期字符串按指定格式转换成日期类型
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param aMask
 	 *            指定的日期格式，如:yyyy-MM-dd
@@ -578,7 +594,7 @@ public class DateUtil {
 	/**
 	 * 将日期字符串按默认格式转换成日期类型
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @param strDate
 	 * @return
@@ -602,7 +618,7 @@ public class DateUtil {
 	/**
 	 * 返回一个JAVA简单类型的日期字符串
 	 * 
-	 *
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -648,6 +664,7 @@ public class DateUtil {
 
 	/**
 	 * 为查询日期添加最小时间
+	 * 
 	 * @param 目标类型Date
 	 * @param 转换参数Date
 	 * @return
@@ -667,6 +684,7 @@ public class DateUtil {
 
 	/**
 	 * 为查询日期添加最大时间
+	 * 
 	 * @param 目标类型Date
 	 * @param 转换参数Date
 	 * @return
@@ -686,6 +704,7 @@ public class DateUtil {
 
 	/**
 	 * 返回系统现在年份中指定月份的天数
+	 * 
 	 * @param 月份month
 	 * @return 指定月的总天数
 	 */
@@ -703,6 +722,7 @@ public class DateUtil {
 
 	/**
 	 * 返回指定年份中指定月份的天数
+	 * 
 	 * @param 年份year
 	 * @param 月份month
 	 * @return 指定月的总天数
@@ -718,6 +738,7 @@ public class DateUtil {
 
 	/**
 	 * 判断是平年还是闰年
+	 * 
 	 * @date Mar 11, 2012
 	 * @param year
 	 * @return
@@ -732,6 +753,7 @@ public class DateUtil {
 
 	/**
 	 * 取得当前时间的日戳
+	 * 
 	 * @date Mar 11, 2012
 	 * @return
 	 */
@@ -745,6 +767,7 @@ public class DateUtil {
 
 	/**
 	 * 取得指定时间的日戳
+	 * 
 	 * @return
 	 */
 	@SuppressWarnings("deprecation")

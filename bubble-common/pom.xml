@@ -34,5 +34,9 @@
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-util</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>apache-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+		</dependency>
 	</dependencies>
 </project>
