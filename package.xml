@@ -18,13 +18,17 @@
 		</fileSet>
 		<fileSet>
 			<includes>
-				<include>./deploy/*.war</include>
+				<include>deploy/*.war</include>
 			</includes>
 		</fileSet>
 		<!-- TODO add other Files -->
 		<fileSet>
 			<directory>/bubble-application/src/main/resources/prop</directory>
 			<outputDirectory>prop</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>/bubble-web/src/site/</directory>
+			<outputDirectory>/website</outputDirectory>
 		</fileSet>
 	</fileSets>
 </assembly>
